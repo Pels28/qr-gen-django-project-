@@ -1,0 +1,13 @@
+{% autoescape off %}
+
+Welcome to QR-GEN Login
+
+Hello {{ name }}!!
+
+Thank you for visiting our website
+
+Please use this link to verify your account
+
+Confirmation Link: http:://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+
+{% endautoescape %}

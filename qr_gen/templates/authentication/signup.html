@@ -1,0 +1,93 @@
+{% extends 'base_auth.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+
+            <div class="card mt-3 mb-1">
+
+
+                <div class="card-body py-3">
+
+                    <div class="card-title py-2">
+                        <h4>Sign Up Now</h4>
+                    </div>
+
+
+
+
+                    <form action="/signup" method="post">
+                        {% csrf_token %}
+
+                        {% include 'partials/_messages.html' %}
+
+                        <div class="form-floating mb-1">
+                            <input type="text" class="form-control" id="username" placeholder="name@example.com"
+                                name="username" value="{{ username }}">
+                            <label for="username">Username</label>
+                        </div>
+                        <div class="invalid-feedback invalid-feedback" style="display:none;">
+                        </div>
+
+                        <div class="form-floating mb-1">
+                            <input type="text" class="form-control" id="fname" placeholder="First Name" name="fname"
+                                value="{{ fname }}">
+                            <label for="fname">First Name</label>
+                        </div>
+                        <div class="fnameFeedBackArea invalid-feedback" style="display:none;">
+
+                        </div>
+                        <div class="form-floating mb-1">
+                            <input type="text" class="form-control" id="lname" placeholder="Last Name" name="lname"
+                                value="{{ lname }}">
+                            <label for="lname">Last Name</label>
+                        </div>
+                        <div class="lnameFeedBackArea invalid-feedback" style="display:none;">
+
+                        </div>
+                        <div class="form-floating mb-1">
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com"
+                                name="email" value="{{ email }}">
+                            <label for="email">Email address</label>
+                        </div>
+                        <div class="emailFeedBackArea invalid-feedback" style="display:none;">
+
+                        </div>
+                        <div class="form-floating mb-1">
+                            <input type="password" class="form-control" id="pass1" placeholder="Password" name="pass1"
+                                value="{{ pass1 }}">
+                            <label for="pass1">Password</label>
+                            <small class="float-end py-3 showPasswordToggle">SHOW</small>
+                        </div>
+
+
+
+                        <button class="w-100 btn btn-lg btn-primary submit-btn" type="submit">Sign Up</button>
+
+                    </form>
+
+                    <div class="container">
+                        <span class="text-lead lead">Have an account?</span><a href="{% url 'login' %}">Login</a><br>
+                        <span class="text-lead lead">Forgot Password?</span><a href="{% url 'request-password' %}">Reset it</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-md-4"></div>
+</div>
+</div>
+
+<script src="{% static 'js/register.js' %}"></script>
+
+{% endblock content %}
